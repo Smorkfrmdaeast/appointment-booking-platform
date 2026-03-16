@@ -4,110 +4,117 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Smart Appointment Booking Platform</title>
+
+<!-- Tailwind CSS CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
+
+<!-- FontAwesome Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
 <style>
 body { background:#05060f; color:white; font-family:system-ui; }
 .glass { background:rgba(255,255,255,0.05); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.1); }
 .neon { box-shadow:0 0 20px #3b82f6; }
-.hero-bg { background:linear-gradient(135deg,#1e3a8a,#9333ea,#06b6d4); min-height:90vh; display:flex; justify-content:center; align-items:center; flex-direction:column; text-align:center; }
+.hero-bg{ background:radial-gradient(circle at 20% 20%,#1e3a8a,transparent), radial-gradient(circle at 80% 30%,#9333ea,transparent), radial-gradient(circle at 50% 80%,#06b6d4,transparent); min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:2rem; }
+input, select, textarea { color:black; }
 </style>
 </head>
+
 <body>
 
 <!-- HERO -->
-<section class="hero-bg text-center p-8">
-  <h1 class="text-5xl font-bold mb-4">Smart Appointment Booking Platform</h1>
-  <p class="text-gray-300 max-w-2xl mb-6">
-    Easily schedule appointments with available time slots. Fast, simple, and professional.
-  </p>
-  <button onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"
-    class="bg-blue-500 hover:bg-blue-600 px-6 py-3 rounded-xl neon">Book an Appointment</button>
+<section class="hero-bg">
+<h1 class="text-5xl md:text-6xl font-bold mb-6">📅 Smart Appointment Booking</h1>
+<p class="text-gray-300 max-w-xl mb-6">
+Easily schedule appointments with available time slots and instant confirmation.
+</p>
+<button onclick="scrollToSection('booking')" class="bg-blue-500 hover:bg-blue-600 px-6 py-3 rounded-xl neon">
+Book an Appointment
+</button>
 </section>
 
 <!-- BOOKING FORM -->
-<section id="booking" class="py-16 px-6 max-w-xl mx-auto">
-  <h2 class="text-3xl font-bold text-center mb-6">Schedule Your Appointment</h2>
-  <form id="appointmentForm" class="glass p-6 rounded-xl space-y-4">
-    <input type="text" id="name" placeholder="Name*" class="w-full p-3 rounded text-black" required>
-    <input type="email" id="email" placeholder="Email*" class="w-full p-3 rounded text-black" required>
-    <input type="tel" id="phone" placeholder="Phone (optional)" class="w-full p-3 rounded text-black">
-    <input type="date" id="date" class="w-full p-3 rounded text-black" required>
-    <select id="time" class="w-full p-3 rounded text-black" required>
-      <option value="">Select Time Slot</option>
-      <option>09:00</option>
-      <option>10:00</option>
-      <option>11:00</option>
-      <option>13:00</option>
-      <option>14:00</option>
-      <option>15:00</option>
-    </select>
-    <button type="submit" class="bg-blue-500 px-6 py-3 rounded text-black font-bold hover:bg-blue-600">Book Appointment</button>
-  </form>
-  <div id="confirmation" class="mt-6 text-center text-green-400 font-bold"></div>
+<section id="booking" class="py-20 px-6 max-w-2xl mx-auto">
+<h2 class="text-3xl font-bold mb-6 text-center">Schedule Your Appointment</h2>
+
+<div class="glass p-8 rounded-xl space-y-4">
+  <input type="text" id="name" placeholder="Name" class="w-full p-3 rounded"/>
+  <input type="email" id="email" placeholder="Email" class="w-full p-3 rounded"/>
+  <input type="tel" id="phone" placeholder="Phone (optional)" class="w-full p-3 rounded"/>
+  <input type="date" id="date" class="w-full p-3 rounded"/>
+  <select id="time" class="w-full p-3 rounded">
+    <option value="">Select Time Slot</option>
+    <option value="10:00">10:00 AM</option>
+    <option value="11:00">11:00 AM</option>
+    <option value="14:00">2:00 PM</option>
+    <option value="15:00">3:00 PM</option>
+  </select>
+  <button onclick="submitAppointment()" class="w-full bg-blue-500 hover:bg-blue-600 p-3 rounded text-black font-bold">
+    Book Now
+  </button>
+</div>
 </section>
 
 <!-- FEATURES -->
-<section class="py-16 px-6 max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
-  <div class="glass p-6 rounded-xl text-center">⚡ Interactive Booking Calendar</div>
-  <div class="glass p-6 rounded-xl text-center">🕒 Time Slot Selection</div>
+<section class="py-20 px-6">
+<h2 class="text-3xl font-bold mb-12 text-center">Features</h2>
+<div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+  <div class="glass p-6 rounded-xl text-center">📅 Interactive Booking Calendar</div>
+  <div class="glass p-6 rounded-xl text-center">⏰ Time Slot Selection</div>
   <div class="glass p-6 rounded-xl text-center">✅ Instant Booking Confirmation</div>
+</div>
 </section>
 
 <!-- SKILLS -->
-<section class="py-16 px-6 max-w-5xl mx-auto text-center">
-  <h2 class="text-3xl font-bold mb-6">Skills Demonstrated</h2>
-  <div class="grid md:grid-cols-3 gap-6">
-    <div class="glass p-6 rounded-xl">📝 Form Systems</div>
-    <div class="glass p-6 rounded-xl">📅 Scheduling Logic</div>
-    <div class="glass p-6 rounded-xl">💻 Frontend Development</div>
-  </div>
+<section class="py-20 px-6">
+<h2 class="text-3xl font-bold mb-12 text-center">Skills Demonstrated</h2>
+<div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+  <div class="glass p-6 rounded-xl text-center">Form Systems & Validation</div>
+  <div class="glass p-6 rounded-xl text-center">Scheduling Logic & Conflict Handling</div>
+  <div class="glass p-6 rounded-xl text-center">Frontend Development</div>
+</div>
 </section>
 
 <!-- FOOTER -->
 <footer class="py-10 text-center text-gray-400 border-t border-gray-800">
-  <p class="mb-4">Built by SMORK</p>
-  <div class="flex justify-center gap-6 text-xl mb-4">
-    <a href="https://www.instagram.com/smork_frmdaeast"><i class="fa-brands fa-instagram"></i></a>
-    <a href="https://www.linkedin.com/in/smorkfrmdaeast"><i class="fa-brands fa-linkedin"></i></a>
-    <a href="https://github.com/Smorkfrmdaeast"><i class="fa-brands fa-github"></i></a>
-  </div>
-  <p>Contact: ifeanyinuels32@gmail.com</p>
+<p class="mb-4">Built by SMORK</p>
+<div class="flex justify-center gap-6 text-xl mb-4">
+  <a href="https://github.com/Smorkfrmdaeast"><i class="fa-brands fa-github"></i></a>
+  <a href="https://www.linkedin.com/in/smorkfrmdaeast"><i class="fa-brands fa-linkedin"></i></a>
+  <a href="https://www.instagram.com/smork_frmdaeast"><i class="fa-brands fa-instagram"></i></a>
+</div>
+<p>Contact: ifeanyinuels32@gmail.com</p>
 </footer>
 
 <script>
-const form = document.getElementById("appointmentForm");
-const confirmation = document.getElementById("confirmation");
+function scrollToSection(id){
+  document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const data = {
-    name: form.name.value,
-    email: form.email.value,
-    phone: form.phone.value,
-    date: form.date.value,
-    time: form.time.value
-  };
+async function submitAppointment(){
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const phone = document.getElementById("phone").value;
+  const date = document.getElementById("date").value;
+  const time = document.getElementById("time").value;
 
-  confirmation.textContent = "Booking...";
+  if(!name || !email || !date || !time){
+    alert("Please fill in all required fields");
+    return;
+  }
 
   try {
     const res = await fetch("/api/book", {
-      method: "POST",
+      method:"POST",
       headers: {"Content-Type":"application/json"},
-      body: JSON.stringify(data)
+      body: JSON.stringify({name,email,phone,date,time})
     });
-    const result = await res.json();
-    if (res.ok) {
-      confirmation.textContent = result.message;
-      form.reset();
-    } else {
-      confirmation.textContent = result.error;
-    }
-  } catch (err) {
-    confirmation.textContent = "⚠️ Error connecting to server";
+    const data = await res.json();
+    alert(data.message || data.error);
+  } catch(err){
+    alert("⚠️ Server error. Try again later.");
   }
-});
+}
 </script>
 
 </body>
