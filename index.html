@@ -3,118 +3,349 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Smart Appointment Booking Platform</title>
 
-<!-- Tailwind CSS CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- FontAwesome Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
 <style>
-body { background:#05060f; color:white; font-family:system-ui; }
-.glass { background:rgba(255,255,255,0.05); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.1); }
-.neon { box-shadow:0 0 20px #3b82f6; }
-.hero-bg{ background:radial-gradient(circle at 20% 20%,#1e3a8a,transparent), radial-gradient(circle at 80% 30%,#9333ea,transparent), radial-gradient(circle at 50% 80%,#06b6d4,transparent); min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:2rem; }
-input, select, textarea { color:black; }
+
+body{
+background:#0b0f19;
+font-family:system-ui;
+color:white;
+}
+
+.hero-gradient{
+background:
+radial-gradient(circle at 10% 20%, #1e3a8a, transparent),
+radial-gradient(circle at 90% 10%, #9333ea, transparent),
+radial-gradient(circle at 50% 80%, #06b6d4, transparent);
+}
+
+.glass{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,0.1);
+}
+
+.btn-glow:hover{
+box-shadow:0 0 20px #3b82f6;
+transform:translateY(-1px);
+}
+
+input,select{
+color:black;
+}
+
 </style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
+
+<nav class="flex justify-between items-center px-8 py-6 max-w-7xl mx-auto">
+
+<h1 class="text-xl font-bold">
+SmartBooking
+</h1>
+
+<div class="space-x-6 text-gray-300">
+
+<a href="#booking" class="hover:text-white">Book</a>
+<a href="#features" class="hover:text-white">Features</a>
+<a href="#skills" class="hover:text-white">Skills</a>
+
+</div>
+
+</nav>
+
 <!-- HERO -->
-<section class="hero-bg">
-<h1 class="text-5xl md:text-6xl font-bold mb-6">📅 Smart Appointment Booking</h1>
-<p class="text-gray-300 max-w-xl mb-6">
-Easily schedule appointments with available time slots and instant confirmation.
+
+<section class="hero-gradient py-28 text-center">
+
+<h1 class="text-5xl md:text-6xl font-bold mb-6">
+
+Smart Appointment Booking Platform
+
+</h1>
+
+<p class="text-gray-300 max-w-xl mx-auto mb-8">
+
+Schedule appointments easily with dynamic time slots and instant confirmation.
+
 </p>
-<button onclick="scrollToSection('booking')" class="bg-blue-500 hover:bg-blue-600 px-6 py-3 rounded-xl neon">
-Book an Appointment
-</button>
+
+<a href="#booking"
+class="bg-blue-500 btn-glow px-8 py-4 rounded-xl font-semibold">
+
+Book Appointment
+
+</a>
+
 </section>
 
-<!-- BOOKING FORM -->
-<section id="booking" class="py-20 px-6 max-w-2xl mx-auto">
-<h2 class="text-3xl font-bold mb-6 text-center">Schedule Your Appointment</h2>
+<!-- BOOKING -->
 
-<div class="glass p-8 rounded-xl space-y-4">
-  <input type="text" id="name" placeholder="Name" class="w-full p-3 rounded"/>
-  <input type="email" id="email" placeholder="Email" class="w-full p-3 rounded"/>
-  <input type="tel" id="phone" placeholder="Phone (optional)" class="w-full p-3 rounded"/>
-  <input type="date" id="date" class="w-full p-3 rounded"/>
-  <select id="time" class="w-full p-3 rounded">
-    <option value="">Select Time Slot</option>
-    <option value="10:00">10:00 AM</option>
-    <option value="11:00">11:00 AM</option>
-    <option value="14:00">2:00 PM</option>
-    <option value="15:00">3:00 PM</option>
-  </select>
-  <button onclick="submitAppointment()" class="w-full bg-blue-500 hover:bg-blue-600 p-3 rounded text-black font-bold">
-    Book Now
-  </button>
+<section id="booking" class="py-20 px-6">
+
+<div class="max-w-xl mx-auto">
+
+<h2 class="text-3xl font-bold mb-10 text-center">
+
+Schedule Appointment
+
+</h2>
+
+<div class="glass p-8 rounded-2xl space-y-5 shadow-xl">
+
+<input id="name"
+placeholder="Full Name"
+class="w-full p-3 rounded"/>
+
+<input id="email"
+type="email"
+placeholder="Email"
+class="w-full p-3 rounded"/>
+
+<input id="phone"
+placeholder="Phone (optional)"
+class="w-full p-3 rounded"/>
+
+<input id="date"
+type="date"
+class="w-full p-3 rounded"/>
+
+<select id="time" class="w-full p-3 rounded">
+
+<option value="">Select Time Slot</option>
+
+<option>10:00</option>
+<option>11:00</option>
+<option>14:00</option>
+<option>15:00</option>
+
+</select>
+
+<button
+onclick="submitAppointment()"
+id="bookBtn"
+class="w-full bg-blue-500 py-3 rounded font-bold btn-glow">
+
+Book Appointment
+
+</button>
+
+<div id="response" class="text-center pt-4"></div>
+
 </div>
+
+</div>
+
 </section>
 
 <!-- FEATURES -->
-<section class="py-20 px-6">
-<h2 class="text-3xl font-bold mb-12 text-center">Features</h2>
-<div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-  <div class="glass p-6 rounded-xl text-center">📅 Interactive Booking Calendar</div>
-  <div class="glass p-6 rounded-xl text-center">⏰ Time Slot Selection</div>
-  <div class="glass p-6 rounded-xl text-center">✅ Instant Booking Confirmation</div>
+
+<section id="features" class="py-20 px-6">
+
+<h2 class="text-3xl font-bold text-center mb-14">
+
+Platform Features
+
+</h2>
+
+<div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+<div class="glass p-8 rounded-xl text-center">
+
+<i class="fa-solid fa-calendar text-3xl mb-4 text-blue-400"></i>
+
+<h3 class="font-bold mb-2">
+
+Booking Calendar
+
+</h3>
+
+<p class="text-gray-400">
+
+Choose available dates quickly.
+
+</p>
+
 </div>
+
+<div class="glass p-8 rounded-xl text-center">
+
+<i class="fa-solid fa-clock text-3xl mb-4 text-blue-400"></i>
+
+<h3 class="font-bold mb-2">
+
+Time Slot Selection
+
+</h3>
+
+<p class="text-gray-400">
+
+Pick a convenient appointment time.
+
+</p>
+
+</div>
+
+<div class="glass p-8 rounded-xl text-center">
+
+<i class="fa-solid fa-check text-3xl mb-4 text-blue-400"></i>
+
+<h3 class="font-bold mb-2">
+
+Instant Confirmation
+
+</h3>
+
+<p class="text-gray-400">
+
+Receive immediate booking confirmation.
+
+</p>
+
+</div>
+
+</div>
+
 </section>
 
 <!-- SKILLS -->
-<section class="py-20 px-6">
-<h2 class="text-3xl font-bold mb-12 text-center">Skills Demonstrated</h2>
-<div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-  <div class="glass p-6 rounded-xl text-center">Form Systems & Validation</div>
-  <div class="glass p-6 rounded-xl text-center">Scheduling Logic & Conflict Handling</div>
-  <div class="glass p-6 rounded-xl text-center">Frontend Development</div>
+
+<section id="skills" class="py-20 px-6">
+
+<h2 class="text-3xl font-bold text-center mb-14">
+
+Developer Skills Demonstrated
+
+</h2>
+
+<div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+<div class="glass p-8 rounded-xl text-center">
+
+Form Systems & Validation
+
 </div>
+
+<div class="glass p-8 rounded-xl text-center">
+
+Scheduling Logic
+
+</div>
+
+<div class="glass p-8 rounded-xl text-center">
+
+Modern Frontend Development
+
+</div>
+
+</div>
+
 </section>
 
 <!-- FOOTER -->
-<footer class="py-10 text-center text-gray-400 border-t border-gray-800">
-<p class="mb-4">Built by SMORK</p>
+
+<footer class="border-t border-gray-800 py-10 text-center text-gray-400">
+
+<p class="mb-4">
+
+Built by SMORK
+
+</p>
+
 <div class="flex justify-center gap-6 text-xl mb-4">
-  <a href="https://github.com/Smorkfrmdaeast"><i class="fa-brands fa-github"></i></a>
-  <a href="https://www.linkedin.com/in/smorkfrmdaeast"><i class="fa-brands fa-linkedin"></i></a>
-  <a href="https://www.instagram.com/smork_frmdaeast"><i class="fa-brands fa-instagram"></i></a>
+
+<a href="https://github.com/Smorkfrmdaeast">
+
+<i class="fa-brands fa-github"></i>
+
+</a>
+
+<a href="https://www.linkedin.com/in/smorkfrmdaeast">
+
+<i class="fa-brands fa-linkedin"></i>
+
+</a>
+
+<a href="https://www.instagram.com/smork_frmdaeast">
+
+<i class="fa-brands fa-instagram"></i>
+
+</a>
+
 </div>
-<p>Contact: ifeanyinuels32@gmail.com</p>
+
+<p>
+
+Contact: ifeanyinuels32@gmail.com
+
+</p>
+
 </footer>
 
 <script>
-function scrollToSection(id){
-  document.getElementById(id).scrollIntoView({behavior:"smooth"});
-}
 
 async function submitAppointment(){
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const phone = document.getElementById("phone").value;
-  const date = document.getElementById("date").value;
-  const time = document.getElementById("time").value;
 
-  if(!name || !email || !date || !time){
-    alert("Please fill in all required fields");
-    return;
-  }
+const btn=document.getElementById("bookBtn")
 
-  try {
-    const res = await fetch("/api/book", {
-      method:"POST",
-      headers: {"Content-Type":"application/json"},
-      body: JSON.stringify({name,email,phone,date,time})
-    });
-    const data = await res.json();
-    alert(data.message || data.error);
-  } catch(err){
-    alert("⚠️ Server error. Try again later.");
-  }
+const response=document.getElementById("response")
+
+btn.innerText="Booking..."
+
+const data={
+
+name:document.getElementById("name").value,
+email:document.getElementById("email").value,
+phone:document.getElementById("phone").value,
+date:document.getElementById("date").value,
+time:document.getElementById("time").value
+
 }
+
+try{
+
+const res=await fetch("/api/book",{
+
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify(data)
+
+})
+
+const result=await res.json()
+
+if(result.message){
+
+response.innerHTML=`<p class="text-green-400">${result.message}</p>`
+
+}else{
+
+response.innerHTML=`<p class="text-red-400">${result.error}</p>`
+
+}
+
+}
+
+catch{
+
+response.innerHTML=`<p class="text-red-400">Server error</p>`
+
+}
+
+btn.innerText="Book Appointment"
+
+}
+
 </script>
 
 </body>
