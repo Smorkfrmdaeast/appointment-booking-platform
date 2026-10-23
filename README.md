@@ -1,40 +1,52 @@
 # Smart Appointment Booking Platform
 
-A **modern, professional SaaS-style Appointment Booking Platform** designed to showcase form handling, scheduling logic, and responsive UI. Perfect for developer portfolios or demonstration purposes.  
+A modern, professional appointment scheduling application built with **React**, **TypeScript**, and **Tailwind CSS**. Designed for consultants, developers, clinicians, and service professionals with an interactive two-column calendar, dynamic time slot conflict handling, and live appointment management.
 
 ---
 
 ## 🌟 Key Features
 
-- **Interactive Booking Calendar** – Users can easily select a date for appointments.  
-- **Dynamic Time Slot Selection** – Available times update based on the chosen date.  
-- **Instant Booking Confirmation** – Displays a confirmation message after submission.  
-- **Form Validation & Handling** – Ensures correct input and prevents conflicts.  
-- **Responsive Design** – Optimized for desktop, tablet, and mobile.  
-- **Modern UI/UX** – Glassmorphism, subtle gradients, and professional SaaS styling.  
+- **Interactive Two-Column Booking Engine** – Month-navigation calendar with live availability counters alongside an attendee details and live summary panel.
+- **Dynamic Time Slot Availability** – Displays available 45-minute consultation slots (`10:00`, `11:00`, `14:00`, `15:00`) with explicit states: `AVAILABLE`, `SELECTED`, and `BOOKED`.
+- **Deterministic Conflict Protection** – Rejects double-booking collisions for identical dates and times with instant user feedback.
+- **Calm Confirmation Experience** – Comprehensive post-booking receipt with copy-to-clipboard, calendar holding, and repeat booking actions.
+- **Scheduled Appointments Manager** – Tabular management area with real-time search filtering and two-step confirmation dialogs for safe cancellation.
+- **Disciplined Dark Aesthetic** – Deep navy and charcoal foundation with purposeful blue accents, avoiding AI slop and artificial clutter.
 
 ---
 
-## 🛠 Skills Demonstrated
+## 🛠 Skills & Tech Stack
 
-- Frontend Development (HTML, CSS, JavaScript, TailwindCSS)  
-- Form Systems & Validation  
-- Scheduling Logic & Conflict Handling  
-- Interactive Components & Portfolio-Ready UI/UX Design  
-
----
-
-## 💻 Technology Stack
-
-- **Frontend:** HTML, TailwindCSS, JavaScript  
-- **Backend:** Node.js (Serverless API on Vercel)  
-- **Deployment:** GitHub + Vercel  
+- **Framework:** React 19 + TypeScript
+- **Styling:** Tailwind CSS v4 (Deep Navy / Charcoal design system)
+- **Icons:** Lucide React
+- **Architecture:** Modular components, controlled form systems, in-memory & persistent local state
 
 ---
 
-## 🚀 Usage Instructions
+## 🚀 Getting Started
 
-1. Clone the repository:
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-```bash
-git clone https://github.com/Smorkfrmdaeast/appointment-booking-platform.git
+2. Start development server:
+   ```bash
+   npm run dev
+   ```
+
+3. Build for production:
+   ```bash
+   npm run build
+   ```
+
+---
+
+## 👤 Author
+
+- **SMORK**
+- **GitHub:** [Smorkfrmdaeast](https://github.com/Smorkfrmdaeast)
+- **LinkedIn:** [smorkfrmdaeast](https://www.linkedin.com/in/smorkfrmdaeast)
+- **Instagram:** [@Smorkfrmdaeast1](https://www.instagram.com/Smorkfrmdaeast1)
+- **Contact:** [ifeanyinuels32@gmail.com](mailto:ifeanyinuels32@gmail.com)

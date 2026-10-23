@@ -1,0 +1,7 @@
+{
+  "name": "Smart Appointment Booking Platform",
+  "description": "Schedule appointments easily with dynamic time slots and instant confirmation.",
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

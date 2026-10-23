@@ -1,0 +1,6 @@
+{
+  "summary":  "Implementation plan for integrating Google Calendar and automated Google Meet link generation for bookings, including host OAuth connection, conference data creation, and live video room link delivery on confirmations.",
+  "updatedAt":  "2026-10-23T18:56:01.540915306Z",
+  "requestFeedback":  true,
+  "userFacing":  true
+}
